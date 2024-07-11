@@ -9,9 +9,9 @@ jobs:
     name: 'Build and Push'
     runs-on: ubuntu:latest
 
-  steps:
-    - name: 'Checkout'
-    uses: actions/checkout@v4
+    steps:
+      - name: 'Checkout'
+      uses: actions/checkout@v4
 
-    - name: 'Build DOcker Image'
-    run: docker build -t moshepwribeiro/nlw.journey.api:latest .
+      - name: 'Build DOcker Image'
+      run: docker build -t moshepwribeiro/nlw.journey.api:latest .
