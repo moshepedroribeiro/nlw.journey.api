@@ -16,3 +16,5 @@ jobs:
 
       - name: 'Build DOcker Image'
         run: docker build -t moshepwribeiro/nlw.journey.api:latest .
+
+        
