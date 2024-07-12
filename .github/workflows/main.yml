@@ -7,14 +7,20 @@ on:
 
 jobs:
   build-and-push:
-    name: 'Build and Push'
+    name: Build and Push
     runs-on: ubuntu:latest
 
     steps:
-      - name: 'Checkout'
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: 'Build DOcker Image'
-        run: docker build -t moshepwribeiro/nlw.journey.api:latest .
+      - name: Generate SHA
+        id: generate_sha
+        run: |
+            SHA=$(echo $GITHUB_SHA | cut -c1-7)
+            echo "sha=$SHA" >> $GITHUB_OUTPUT
+
+      - name: Build DOcker Image
+        run: docker build -t moshepwribeiro/nlw.journey.api:${{ steps.generate_sha.outputs.sha }} .
 
         
